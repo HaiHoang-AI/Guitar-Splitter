@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guitar Splitter</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <div class="intro">
+          <p class="eyebrow">Local source separation</p>
+          <h1>Guitar Splitter</h1>
+          <p class="summary">
+            Upload a song or instrumental track, then separate it into guitar-only audio
+            and a companion mix with the guitar removed.
+          </p>
+        </div>
+
+        <section class="panel upload-panel" aria-labelledby="upload-title">
+          <div class="panel-heading">
+            <div>
+              <h2 id="upload-title">Input audio</h2>
+              <p>MP3, WAV, FLAC, M4A, AAC, OGG, OPUS, WMA, or MP4.</p>
+            </div>
+            <div id="healthBadge" class="badge badge-pending">Checking</div>
+          </div>
+
+          <form id="uploadForm">
+            <label id="dropZone" class="drop-zone" for="audioFile">
+              <input id="audioFile" name="audio" type="file" accept="audio/*,video/mp4" />
+              <span class="drop-title">Drop audio here or choose a file</span>
+              <span id="fileMeta" class="drop-meta">Maximum upload size follows server settings.</span>
+            </label>
+
+            <div class="actions">
+              <button id="startButton" class="primary-button" type="submit">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+                Separate guitar
+              </button>
+              <button id="resetButton" class="ghost-button" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4v6h6M20 20v-6h-6"></path>
+                  <path d="M20 9A8 8 0 0 0 6.2 5.5L4 10m16 4-2.2 4.5A8 8 0 0 1 4 15"></path>
+                </svg>
+                Reset
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel status-panel" aria-labelledby="status-title">
+          <div class="panel-heading compact">
+            <div>
+              <h2 id="status-title">Processing</h2>
+              <p id="statusText">Waiting for an upload.</p>
+            </div>
+            <div id="jobBadge" class="badge">Idle</div>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div id="progressBar" class="progress-bar"></div>
+          </div>
+          <pre id="logOutput" class="log-output">No job logs yet.</pre>
+        </section>
+      </section>
+
+      <section class="results" aria-labelledby="results-title">
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow">Preview and export</p>
+            <h2 id="results-title">Output stems</h2>
+          </div>
+        </div>
+
+        <div class="track-grid">
+          <article class="track">
+            <div class="track-top">
+              <div>
+                <h3>Original</h3>
+                <p>Uploaded source file</p>
+              </div>
+              <a id="downloadOriginal" class="download-link is-disabled" href="#" aria-disabled="true">Download</a>
+            </div>
+            <canvas id="waveOriginal" class="waveform" height="88"></canvas>
+            <audio id="audioOriginal" controls></audio>
+          </article>
+
+          <article class="track">
+            <div class="track-top">
+              <div>
+                <h3>Guitar only</h3>
+                <p>Isolated guitar stem</p>
+              </div>
+              <a id="downloadGuitar" class="download-link is-disabled" href="#" aria-disabled="true">Download</a>
+            </div>
+            <canvas id="waveGuitar" class="waveform" height="88"></canvas>
+            <audio id="audioGuitar" controls></audio>
+          </article>
+
+          <article class="track">
+            <div class="track-top">
+              <div>
+                <h3>No guitar</h3>
+                <p>Remaining mix after guitar removal</p>
+              </div>
+              <a id="downloadNoGuitar" class="download-link is-disabled" href="#" aria-disabled="true">Download</a>
+            </div>
+            <canvas id="waveNoGuitar" class="waveform" height="88"></canvas>
+            <audio id="audioNoGuitar" controls></audio>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>
