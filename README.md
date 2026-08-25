@@ -40,6 +40,25 @@ http://127.0.0.1:7860
 
 Upload an audio file, then click **Separate guitar**.
 
+## Vercel Frontend Deploy
+
+This repository includes a separate `frontend/` directory for static Vercel deployments. Set the Vercel project Root Directory to:
+
+```text
+frontend
+```
+
+Use these Vercel settings:
+
+```text
+Framework Preset: Other
+Build Command: leave empty
+Install Command: leave empty
+Output Directory: .
+```
+
+The Python `app.py` server is for local processing and should not be deployed as a Vercel Python Function.
+
 ## How It Works
 
 1. The browser uploads audio to the local Python server.
