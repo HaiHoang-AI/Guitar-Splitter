@@ -124,23 +124,6 @@ h1 {
   font-weight: 800;
 }
 
-.hero-media {
-  position: relative;
-  overflow: hidden;
-  max-width: 520px;
-  margin: 2px 0 0;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 8px;
-  background: var(--ink);
-  box-shadow: var(--soft-shadow);
-}
-
-.hero-media img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1200 / 760;
-  object-fit: cover;
-}
 
 .contact-note {
   display: grid;
@@ -495,10 +478,6 @@ label:focus-within {
 
   .intro {
     max-width: 720px;
-  }
-
-  .hero-media {
-    max-width: 100%;
   }
 }
 
