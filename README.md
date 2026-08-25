@@ -117,3 +117,7 @@ guitars, synths, or piano in the same frequency range.
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+
+cd D:\Guitar_Spliter
+powershell -ExecutionPolicy Bypass -File .\scripts\start.ps1
